@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Vehicle Registration Form</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        /* Media Query for smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+
+            input[type="text"], textarea, select {
+                padding: 8px;
+                font-size: 14px;
+            }
+
+            button {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+
+            input[type="text"], textarea, select {
+                padding: 6px;
+                font-size: 12px;
+            }
+
+            button {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+
+        /* Error Styling */
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Vehicle Registration Form</h2>
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <!-- Owner's Name -->
+        <label for="ownerName">Owner's Name</label>
+        <input type="text" id="ownerName" name="ownerName" placeholder="Enter owner's name">
+        <div class="error" id="ownerNameError"></div>
+
+        <!-- Vehicle Registration Number -->
+        <label for="vehicleRegNo">Vehicle Registration Number</label>
+        <input type="text" id="vehicleRegNo" name="vehicleRegNo" placeholder="Enter vehicle registration number">
+        <div class="error" id="vehicleRegNoError"></div>
+
+        <!-- Engine Number -->
+        <label for="engineNo">Engine Number</label>
+        <input type="text" id="engineNo" name="engineNo" placeholder="Enter engine number">
+        <div class="error" id="engineNoError"></div>
+
+        <!-- CC -->
+        <label for="cc">Engine Capacity (CC)</label>
+        <input type="text" id="cc" name="cc" placeholder="Enter engine capacity (cc)">
+        <div class="error" id="ccError"></div>
+
+        <!-- District Dropdown -->
+        <label for="district">Select District</label>
+        <select id="district" name="district">
+            <option value="">--Select District--</option>
+            <option value="district1">District 1</option>
+            <option value="district2">District 2</option>
+            <option value="district3">District 3</option>
+        </select>
+        <div class="error" id="districtError"></div>
+
+        <!-- Vehicle Type (Radio Buttons) -->
+        <label>Vehicle Type</label>
+        <input type="radio" id="car" name="vehicleType" value="Car">
+        <label for="car">Car</label>
+
+        <input type="radio" id="motorcycle" name="vehicleType" value="Motorcycle">
+        <label for="motorcycle">Motorcycle</label>
+
+        <input type="radio" id="truck" name="vehicleType" value="Truck">
+        <label for="truck">Truck</label>
+        <div class="error" id="vehicleTypeError"></div>
+
+        <!-- Details (Text Area) -->
+        <label for="details">Additional Details</label>
+        <textarea id="details" name="details" placeholder="Enter additional details about the vehicle"></textarea>
+        <div class="error" id="detailsError"></div>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+    // JavaScript Validation Function
+    function validateForm() {
+        // Clear previous error messages
+        clearErrors();
+
+        // Retrieve form values
+        let ownerName = document.getElementById("ownerName").value;
+        let vehicleRegNo = document.getElementById("vehicleRegNo").value;
+        let engineNo = document.getElementById("engineNo").value;
+        let cc = document.getElementById("cc").value;
+        let district = document.getElementById("district").value;
+        let vehicleType = document.querySelector('input[name="vehicleType"]:checked');
+        let details = document.getElementById("details").value;
+
+        // Flag for form validation status
+        let isValid = true;
+
+        // Validate Owner's Name
+        if (ownerName === "") {
+            document.getElementById("ownerNameError").innerText = "Owner's Name is required";
+            isValid = false;
+        }
+
+        // Validate Vehicle Registration Number
+        if (vehicleRegNo === "") {
+            document.getElementById("vehicleRegNoError").innerText = "Vehicle Registration Number is required";
+            isValid = false;
+        }
+
+        // Validate Engine Number
+        if (engineNo === "") {
+            document.getElementById("engineNoError").innerText = "Engine Number is required";
+            isValid = false;
+        }
+
+        // Validate CC
+        if (cc === "" || isNaN(cc)) {
+            document.getElementById("ccError").innerText = "Please enter a valid CC value";
+            isValid = false;
+        }
+
+        // Validate District
+        if (district === "") {
+            document.getElementById("districtError").innerText = "Please select a district";
+            isValid = false;
+        }
+
+        // Validate Vehicle Type (Radio Buttons)
+        if (!vehicleType) {
+            document.getElementById("vehicleTypeError").innerText = "Please select a vehicle type";
+            isValid = false;
+        }
+
+        // Validate Additional Details
+        if (details === "") {
+            document.getElementById("detailsError").innerText = "Additional details are required";
+            isValid = false;
+        }
+
+        // Prevent form submission if validation fails
+        return isValid;
+    }
+
+    // Clear all error messages
+    function clearErrors() {
+        document.getElementById("ownerNameError").innerText = "";
+        document.getElementById("vehicleRegNoError").innerText = "";
+        document.getElementById("engineNoError").innerText = "";
+        document.getElementById("ccError").innerText = "";
+        document.getElementById("districtError").innerText = "";
+        document.getElementById("vehicleTypeError").innerText = "";
+        document.getElementById("detailsError").innerText = "";
+    }
+</script>
+
+</body>
+</html>

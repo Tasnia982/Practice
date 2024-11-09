@@ -1,0 +1,64 @@
+*{
+    margin:0px;
+    padding: 0px;
+   
+}
+@media(min-width:768px) and (max-width:1023px) {
+    .div1 {
+        background-color: cornflowerblue;
+        height: 40px;
+        text-align: center;
+        color: rgba(0, 255, 0, 0.574);   
+        padding: 3px; 
+    }
+    #full_form {
+        display: flex; /* Add flexbox to use align-items */
+        flex-direction: column; /* Optional: arrange children in a column */
+        align-items: center; /* Align children vertically in the center */
+        justify-content: center; /* Align children horizontally in the center */
+        text-align: center;
+        color: white;
+        background-color: red;
+        padding: 5px;
+        margin-top: 10px;
+    }
+}
+
+
+@media(min-width:1024px){
+    .div1{
+        background-color:aquamarine;
+        height: 40px;
+        text-align: center;
+        color: blue;   
+        padding: 7px; 
+        background-color: ;
+    }
+    #full_form{
+        align-items: center;
+        text-align: center;
+        color: black;
+        background-color: chartreuse;
+        padding: 10px;
+        margin-top: 15px;
+    }
+}
+
+@media(max-width:767px){
+    .div1{
+        background-color:rgb(255, 127, 253);
+        height: 20px;
+        text-align: center;
+        color: black;   
+        padding: 7px; 
+    }
+    #full_form{
+        align-items: center;
+        text-align: center;
+        color: white;
+        background-color: mediumseagreen;
+        padding: 3px;
+        margin-top: 5px;
+    }
+
+}

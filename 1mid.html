@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Form Creation </title>
+    <link rel="stylesheet" href="1mid.css">
+</head>
+<body>
+    
+        <h1 class="div1"> Hello User </h1>
+        <h3 class="div1"> Welcome in this site ! </h3>
+
+    <section id="full_form">
+   
+    <form action="action.php" target="_blank" id="form"> 
+        <h4> Please give your info </h4>
+        
+            <label for="name"> User Name </label><br>
+            <input type="text" id="name" name="name" placeholder="Please give your name " required><br>
+
+            <label for="id">Give Id </label><br>
+            <input type="number" id="id" placeholder="Please give your Id " required><br>
+
+            <label for="email">Gmail </label><br>
+             <input type="email" id="email" placeholder="Please give your email address" required><br>
+
+             <label for="phone">Phone Number </label><br>
+             <input type="number" id="phone" placeholder="Please give your Phone number " required><br>
+
+             <label for="gender1" >Gender </label><br>
+             <input type="radio" value="Mail" name="mail" id="gender1" required> Mail<br>
+             <label for="gender2"> </label>
+             <input type="radio" value="Mail" name="mail" id="gender2"required>Femail <br>
+             <label for="gender3"></label>
+             <input type="radio" value="Mail" name="mail" id="gender3" required>Others <br>
+             <br>
+             
+
+             <label for="district"> District </label><br>
+             <select id="district" >
+                <option>--District--</option>
+                <option > Dhaka </option>
+                <option>Barishal </option>
+                <option > Cumillah </option>
+                <option> Jushar </option>
+             </select><br>
+
+             
+             <label for="fev-subject">Faverout Subject :</label><br>
+             <input type="checkbox" id="physics" name="Physics">Physics <br>
+             <input type="checkbox" id="Math" name="Math">Math<br>
+             <input type="checkbox" id="SWE" name="swe"> SWE <br>
+             <input type="checkbox" id="cse" name="cse">CSE<br>
+
+             <label for="workExperiance">Work Experiance </label><br>
+             <select id="workExperiance">
+                <option>--Work Experiance-- </option>
+                <option>Web Devrloper </option>
+                <option>App Developer </option>
+                <option> Software Developer </option>
+             </select><br><br>
+              
+             <label for="About You">About You:</label><br>
+             <textarea  name="about-You " placeholder="Write something about You " id="about-me" rows="7">  </textarea><br><br>
+
+             <label for="submit">  </label>
+             <input type="submit" id="submit"><br><br>
+
+             <button>Click me if all Done !</button>
+
+    </form>
+</section>
+
+    <script src="1mid.js"> </script>
+</body>
+</html>
